@@ -10,7 +10,7 @@ const messageTwo = document.querySelector('#msg-2')
 
 weatherForm.addEventListener('submit',(e)=>{
     e.preventDefault()
-
+    messageOne.textContent='Loading....'
     const location = search.value
     fetch('https://api.openweathermap.org/data/2.5/forecast?q='+location+'&appid=66662c8f99857d855a7803978ccceba3').then((response) =>{
     response.json().then((data)  => {
