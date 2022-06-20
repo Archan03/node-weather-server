@@ -13,7 +13,8 @@ const forecast = (address, callback) => {
             callback(undefined,'Unable to find location!!')
         }
         else{
-            callback(undefined,'It is currently '+ body.list[0].main.temp +'. And weather is '  +body.list[0].weather[0].description+'. Today high is '+body.list[0].main.temp_max +' and low is '+body.list[0].main.temp_min )
+            // console.log( (body.list[0].main.temp-273.15) )
+            callback(undefined,'It is currently '+ (body.list[0].main.temp-273.15).toFixed(2) +'. And weather is '  +body.list[0].weather[0].description+'. Today high is '+(body.list[0].main.temp_max-273.15 ).toFixed(2)+' and low is '+(body.list[0].main.temp_min-273.15 ).toFixed(2))
         }
     })
 }
