@@ -6,17 +6,16 @@ const forecast = (address, callback) => {
     request({url, json: true},(error,  {body }={}) =>{
         // console.log(error)
         if(error){
-            callback('Unable to connect',undefined)
+            callback(undefined,'Unable to connect!!')
 
         }
         else if(body.cod == 404){
-            callback('Unable to find location', undefined)
+            callback(undefined,'Unable to find location!!')
         }
         else{
-            callback(undefined,'It is currently '+ body.list[0].main.temp +'. And weather is '  +body.list[0].weather[0].description)
+            callback(undefined,'It is currently '+ body.list[0].main.temp +'. And weather is '  +body.list[0].weather[0].description+'. Today high is '+body.list[0].main.temp_max +' and low is '+body.list[0].main.temp_min )
         }
     })
 }
-
 
 module.exports = forecast
